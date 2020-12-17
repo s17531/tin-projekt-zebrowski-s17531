@@ -1,0 +1,54 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Lista lektorów</h2>
+    <table class="table-list">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Język</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jan</td>
+                <td>Kowalski</td>
+                <td>angielski</td>
+                <td>
+                    <ul class="list-actions">
+                        <li>
+                            <a href="teacher-form-details.html" class="list-actions-button-details">Szczegóły</a>
+                        </li>
+                        <li>
+                            <a href="teacher-form-edit.html" class="list-actions-button-edit">Edytuj</a>
+                        </li>
+                        <li>
+                            <a href="" class="list-actions-button-delete">Usuń</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Adam</td>
+                <td>Nowak</td>
+                <td>niemiecki</td>
+                <td>
+                    <ul class="list-actions">
+                        <li>
+                            <a href="teacher-form-details.html" class="list-actions-button-details">Szczegóły</a>
+                        </li>
+                        <li>
+                            <a href="teacher-form-edit.html" class="list-actions-button-edit">Edytuj</a>
+                        </li>
+                        <li>
+                            <a href="" class="list-actions-button-delete">Usuń</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p><a href="teacher-form.html" class="button-add">Dodaj nowego lektora</a></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

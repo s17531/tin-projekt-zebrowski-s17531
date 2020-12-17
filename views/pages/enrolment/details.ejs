@@ -1,0 +1,33 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Szczegóły przypisania do zajęć</h2>
+    <form class="form">
+
+        <label for="student">Uczeń:<sup>*</sup></label>
+        <select id="student" disabled>
+            <option>--Wybierz ucznia--</option>
+            <option selected>Jan Kowalski</option>
+        </select>
+
+
+        <label for="group">Grupa:<sup>*</sup></label>
+        <select id="group" disabled>
+            <option>--Wybierz grupę--</option>
+            <option selected>A1-A</option>
+        </select>
+
+        <label for="date-from">Data przypisania:<sup>*</sup></label>
+        <input type="date" name="date-from" id="date-from" value="2020-10-04" disabled>
+
+
+        <label for="comments">Uwagi:<sup>*</sup></label>
+        <input type="number" name="comments" id="comments" value="2000" disabled>
+
+        <div class="form-buttons">
+            <!-- <input type="submit" value="Dodaj" class="form-button-submit" /> -->
+            <a href="enrolment-form-edit.html" class="form-button-cancel">Edytuj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

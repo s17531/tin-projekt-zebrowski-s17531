@@ -1,0 +1,34 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Strona główna</h2>
+    <form class="form">
+
+        <label for="student">Uczeń:<sup>*</sup></label>
+        <select id="student">
+            <option>--Wybierz ucznia--</option>
+            <option>Jan Kowalski</option>
+            <option>Adam Nowak</option>
+        </select>
+
+
+        <label for="group">Grupa:<sup>*</sup></label>
+        <select id="group">
+            <option>--Wybierz grupę--</option>
+            <option>A1-A-2020</option>
+            <option>B1-B-2020</option>
+        </select>
+
+        <label for="date-from">Data przypisania:<sup>*</sup></label>
+        <input type="date" name="date-from" id="date-from">
+
+        <label for="comments">Uwagi:<sup>*</sup></label>
+        <input type="text" name="comments" id="comments">
+
+        <div class="form-buttons">
+            <input type="submit" value="Dodaj" class="form-button-submit" />
+            <a href="enrolment-list.html" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

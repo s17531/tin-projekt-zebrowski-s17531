@@ -1,0 +1,28 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Dane ucznia</h2>
+    <form class="form">
+
+        <label for="firstName">Imię:<sup>*</sup></label>
+        <input type="text" name="firstName" id="firstName" value="Jan" disabled>
+
+
+        <label for="lastName">Nazwisko:<sup>*</sup></label>
+        <input type="text" name="lastName" id="lastName" value="Kowalski" disabled>
+
+
+        <label for="email">E-mail:<sup>*</sup></label>
+        <input type="text" name="email" id="email" value="jan.kowalski@gmail.com" disabled>
+
+
+        <label for="email">Data urodzenia:<sup>*</sup></label>
+        <input type="date" name="birthdate" id="birthdate" value="2010-03-04" disabled>
+
+        <div class="form-buttons">
+            <!-- <input type="submit" value="Edytuj" class="form-button-submit" /> -->
+            <a href="student-form-edit.html" class="form-button-cancel">Edytuj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

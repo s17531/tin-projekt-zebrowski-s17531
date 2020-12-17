@@ -1,0 +1,35 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Zmień grupę</h2>
+    <form class="form">
+
+        <label for="firstName">Numer:<sup>*</sup></label>
+        <input type="text" name="nr" id="nr" value="A1-A-2020">
+
+        <label for="level">Poziom:<sup>*</sup></label>
+        <input type="text" name="level" id="level">
+
+        <label for="language">Język:<sup>*</sup></label>
+        <select name="language" id="language">
+            <option value="">--Wybierz język--</option>
+            <option selected>angielski</option>
+            <option>niemiecki</option>
+        </select>
+
+        <label for="hours">Liczba godzin:<sup>*</sup></label>
+        <input type="number" name="hours" id="hours" value="180">
+
+        <label for="teacher">Lektor:<sup>*</sup></label>
+        <select name="teacher" id="teacher">
+            <option value="">--Wybierz lektora--</option>
+            <option selected>Adam Nowak</option>
+        </select>
+
+        <div class="form-buttons">
+            <input type="submit" value="Aktualizuj" class="form-button-submit" />
+            <a href="group-list.html" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>
