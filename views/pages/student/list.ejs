@@ -1,17 +1,17 @@
 <%- include('../../fragments/header.ejs') %>
-<main>
-    <h2>Lista uczniów</h2>
-    <table class="table-list">
-        <thead>
-            <tr>
-                <th>Imię</th>
-                <th>Nazwisko</th>
-                <th>E-mail</th>
-                <th>Data urodzenia</th>
-                <th>Akcje</th>
-            </tr>
-        </thead>
-        <tbody>
+    <main>
+        <h2>Lista uczniów</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>E-mail</th>
+                    <th>Data urodzenia</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <!-- <tbody>
             <tr>
                 <td>Jan</td>
                 <td>Kowalski</td>
@@ -50,8 +50,38 @@
                     </ul>
                 </td>
             </tr>
-        </tbody>
-    </table>
-    <p><a href="student-form.html" class="button-add">Dodaj nowego ucznia</a></p>
-</main>
-<%- include('../../fragments/footer.ejs') %>
+        </tbody> -->
+            <tbody>
+                <% for (let std of stds) { %>
+                    <tr>
+                        <td>
+                            <%= std.firstName %>
+                        </td>
+                        <td>
+                            <%= std.lastName %>
+                        </td>
+                        <td>
+                            <%= std.email %>
+                        </td>
+                        <td>
+                            <%= std.birthday %>
+                        </td>
+                        <td>
+                            <ul class="list-actions">
+                                <li><a href="/students/details/<%=std.idStudent%>"
+                                        class="list-actions-button-details">Szczegóły</a></li>
+                                <li><a href="/students/edit/<%=std.idStudent%>"
+                                        class="list-actions-button-edit">Edytuj</a></li>
+                                <li><a href="/students/delete/<%=std.idStudent%>"
+                                        class="list-actions-button-delete">Usuń</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+
+
+        </table>
+        <p><a href="student-form.html" class="button-add">Dodaj nowego ucznia</a></p>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

@@ -9,6 +9,9 @@ const studentRouter = require('./routes/studentRoute');
 const teacherRouter = require('./routes/teacherRoute');
 const groupRouter = require('./routes/groupRoute');
 const enrolmentRouter = require('./routes/enrolmentRoute');
+const stdApiRouter = require('./routes/api/StudentApiRoute');
+const tchApiRouter = require('./routes/api/TeacherApiRoute');
+const grpApiRouter = require('./routes/api/GroupApiRoute');
 
 var app = express();
 
@@ -28,6 +31,10 @@ app.use('/teachers', teacherRouter);
 app.use('/groups', groupRouter);
 app.use('/enrolments', enrolmentRouter);
 
+
+app.use('/api/students', stdApiRouter);
+app.use('/api/teachers', tchApiRouter);
+app.use('/api/groups', grpApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

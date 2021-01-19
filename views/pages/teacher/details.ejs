@@ -1,25 +1,25 @@
 <%- include('./fragments/header.ejs') %>
-<main>
-    <h2>Dane lektora</h2>
-    <form class="form">
+    <main>
+        <h2>Dane lektora</h2>
+        <form class="form">
 
-        <label for="firstName">Imię:<sup>*</sup></label>
-        <input type="text" name="firstName" id="firstName" value="Jan" disabled>
+            <label for="firstName">Imię:<sup>*</sup></label>
+            <input type="text" name="firstName" id="firstName" value="Jan" disabled>
 
-        <label for="secondName">Nazwisko:<sup>*</sup></label>
-        <input type="text" name="secondName" id="secondName" value="Kowalski" disabled>
+            <label for="secondName">Nazwisko:<sup>*</sup></label>
+            <input type="text" name="secondName" id="secondName" value="Kowalski" disabled>
 
-        <label for="email">Język:<sup>*</sup></label>
-        <input type="text" name="language" id="language" value="angielski">
+            <label for="email">Język:<sup>*</sup></label>
+            <input type="text" name="language" id="language" value="angielski">
 
-        <label for="email">Wykształcenie:<sup>*</sup></label>
-        <input type="text" name="education" id="education" value="mgr UJ" disabled>
+            <label for="education">Wykształcenie:<sup>*</sup></label>
+            <input type="text" name="education" id="education" value="mgr UJ" disabled>
 
-        <div class="form-buttons">
-            <!-- <input type="submit" value="Edytuj" class="form-button-submit" /> -->
-            <a href="teacher-form-edit.html" class="form-button-cancel">Edytuj</a>
-        </div>
-    </form>
+            <div class="form-buttons">
+                <!-- <input type="submit" value="Edytuj" class="form-button-submit" /> -->
+                <a href="teacher-form-edit.html" class="form-button-cancel">Edytuj</a>
+            </div>
+        </form>
 
-</main>
-<%- include('./fragments/footer.ejs') %>
+    </main>
+    <%- include('./fragments/footer.ejs') %>
