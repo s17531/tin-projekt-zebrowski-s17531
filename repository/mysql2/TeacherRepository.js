@@ -1,4 +1,5 @@
 const db = require('../../config/mysql2/db');
+
 exports.getTeachers = () => {
     return db.promise().query('SELECT * FROM Teacher')
         .then((results, fields) => {

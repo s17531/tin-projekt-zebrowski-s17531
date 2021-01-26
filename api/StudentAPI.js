@@ -9,6 +9,20 @@ exports.getStudents = (req, res, next) => {
         });
 };
 
+exports.getStudentById = (req, res, next) => {
+    const stdId = req.params.stdId;
+    StudentRepository.getStudentById(stdId)
+        .then(std => {
+            if (!std) {
+                res.status(404).json({
+                    message: 'Student with id: ' + stdId + ' not found'
+                })
+            } else {
+                res.status(200).json(std);
+            }
+        });
+};
+
 exports.createStudent = (req, res, next) => {
     StudentRepository.createStudent(req.body)
         .then(newObj => {

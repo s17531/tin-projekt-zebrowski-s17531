@@ -1,6 +1,7 @@
 const db = require('../../config/mysql2/db');
+
 exports.getStudents = () => {
-    return db.promise().query('SELECT * FROM student')
+    return db.promise().query('SELECT *  FROM student')
         .then((results, fields) => {
             console.log(results[0]);
             return results[0];
@@ -10,7 +11,30 @@ exports.getStudents = () => {
             throw err;
         });
 };
+
 exports.getStudentById = (stdId) => {
+    const sql = 'SELECT firstName, lastName, email, birthdate  FROM student WHERE idStudent = ?';
+    return db.promise().query(sql, [stdId])
+        .then((results, fields) => {
+            console.log(results[0]);
+            const firstRow = results[0][0];
+            if (!firstRow) {
+                return {};
+            }
+            const std = {
+                idStudent: parseInt(stdId),
+                firstName: firstRow.firstName,
+                lastName: firstRow.lastName,
+                email: firstRow.email,
+                birthdate: firstRow.birthdate
+            }
+            console.log(std);
+            return std;
+        })
+        .catch(err => {
+            console.log(err);
+            throw err;
+        });
 };
 
 exports.createStudent = (newStdData) => {

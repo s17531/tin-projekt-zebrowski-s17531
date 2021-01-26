@@ -160,6 +160,7 @@ main h2 {
 .list-actions-button-delete,
 .button-add,
 .form-button-submit,
+.form-button-edit,
 .form-button-cancel {
     border: none;
     border-radius: 5px;
@@ -171,15 +172,18 @@ main h2 {
 
 .button-add,
 .form-button-submit,
+.form-button-edit,
 .form-button-cancel {
     padding: 0.5rem 1rem;
 }
 .button-add,
+.form-button-edit,
 .form-button-submit {
     background-color: #4c39f7;
 }
 
 .button-add:hover,
+.form-button-edit,
 .form-button-submit:hover {
     background-color:#4c39f7de;
 }
@@ -200,7 +204,7 @@ textarea {
 
 .form {
     display: grid;
-    grid-template-columns: 150px 300px;
+    grid-template-columns: 150px 300px 1fr;
     row-gap: 1rem;
     column-gap: 1rem;
 }
@@ -246,6 +250,7 @@ abbr[title='required'] {
 }
 
 .form-button-submit,
+.form-button-edit,
 .form-button-cancel {
     width: 100%;
 }
@@ -255,6 +260,7 @@ abbr[title='required'] {
     display: block;
 }
 
+.form-button-edit,
 .form-button-submit {
     margin-bottom: 0.5rem;
 }

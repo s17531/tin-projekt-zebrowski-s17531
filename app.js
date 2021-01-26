@@ -12,6 +12,7 @@ const enrolmentRouter = require('./routes/enrolmentRoute');
 const stdApiRouter = require('./routes/api/StudentApiRoute');
 const tchApiRouter = require('./routes/api/TeacherApiRoute');
 const grpApiRouter = require('./routes/api/GroupApiRoute');
+const enrApiRouter = require('./routes/api/EnrollmentApiRoute');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/students', studentRouter);
@@ -35,6 +37,7 @@ app.use('/enrolments', enrolmentRouter);
 app.use('/api/students', stdApiRouter);
 app.use('/api/teachers', tchApiRouter);
 app.use('/api/groups', grpApiRouter);
+app.use('/api/enrollments', enrApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

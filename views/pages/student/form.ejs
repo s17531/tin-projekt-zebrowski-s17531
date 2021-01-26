@@ -1,0 +1,57 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <script type="application/javascript" src="/js/validationStForm.js"></script>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+            <input type="hidden" name="idStudent" value="<%= std.idStudent %>">
+            <label for="firstName">Imię:<sup>*</sup></label>
+            <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków" value="<%= std.firstName %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+            <span id="errorFirstName" class="errors-text"></span>
+
+            <label for="lastName">Nazwisko:<sup>*</sup></label>
+            <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków" value="<%= std.lastName %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+            <span id="errorLastName" class="errors-text"></span>
+
+            <label for="email">E-mail:<sup>*</sup></label>
+            <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= std.email %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+            <span id="errorEmail" class="errors-text"></span>
+
+            <label for="birthdate">Data urodzenia:<sup>*</sup></label>
+            <input type="date" name="birthdate" id="birthdate"
+                value="<%= std.birthdate.toISOString().substring(0, 10); %>" <%=(formMode=='showDetails' ) ? 'disabled'
+                : '' %>>
+            <span id="errorBirthdate" class="errors-text"></span>
+
+            <% if (formMode=='showDetails' ) { %>
+                <div class="section-buttons">
+                    <a href="/students/edit/<%= std.idStudent %>" class="form-button-edit">Edytuj</a>
+                </div>
+                <% } %>
+
+                    <% if (formMode=='edit' ) { %>
+                        <div class="form-buttons">
+                            <p id="errorsSummary" class="errors-text"></p>
+                            <input type="submit" value="Aktualizuj" class="form-button-submit" />
+                        </div>
+                        <% } %>
+
+                            <% if (formMode=='createNew' ) { %>
+
+                                <div class="form-buttons">
+                                    <p id="errorsSummary" class="errors-text"></p>
+                                    <input type="submit" value="Dodaj" class="form-button-submit" />
+                                    <a href="/students" class="form-button-cancel">Anuluj</a>
+                                </div>
+                                <% } %>
+
+
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

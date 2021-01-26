@@ -11,46 +11,6 @@
                     <th>Akcje</th>
                 </tr>
             </thead>
-            <!-- <tbody>
-            <tr>
-                <td>Jan</td>
-                <td>Kowalski</td>
-                <td>jan.kowalski@gmail.com</td>
-                <td>2010-03-04</td>
-                <td>
-                    <ul class="list-actions">
-                        <li>
-                            <a href="student-form-details.html" class="list-actions-button-details">Szczegóły</a>
-                        </li>
-                        <li>
-                            <a href="student-form-edit.html" class="list-actions-button-edit">Edytuj</a>
-                        </li>
-                        <li>
-                            <a href="" class="list-actions-button-delete">Usuń</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Adam</td>
-                <td>Nowak</td>
-                <td>adam.nowak@gmail.com</td>
-                <td>20104-03-04</td>
-                <td>
-                    <ul class="list-actions">
-                        <li>
-                            <a href="student-form-details.html" class="list-actions-button-details">Szczegóły</a>
-                        </li>
-                        <li>
-                            <a href="" class="list-actions-button-edit">Edytuj</a>
-                        </li>
-                        <li>
-                            <a href="" class="list-actions-button-delete">Usuń</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody> -->
             <tbody>
                 <% for (let std of stds) { %>
                     <tr>
@@ -64,7 +24,8 @@
                             <%= std.email %>
                         </td>
                         <td>
-                            <%= std.birthday %>
+                            <!-- <%= new Date().toISOString().substring(0, 10); %> -->
+                            <%= std.birthdate.toISOString().split('T')[0]; %>
                         </td>
                         <td>
                             <ul class="list-actions">
@@ -82,6 +43,6 @@
 
 
         </table>
-        <p><a href="student-form.html" class="button-add">Dodaj nowego ucznia</a></p>
+        <p><a href="/students/add" class="button-add">Dodaj nowego ucznia</a></p>
     </main>
     <%- include('../../fragments/footer.ejs') %>
