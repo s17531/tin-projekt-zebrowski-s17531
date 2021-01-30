@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 const studentRouter = require('./routes/studentRoute');
 const teacherRouter = require('./routes/teacherRoute');
 const groupRouter = require('./routes/groupRoute');
-const enrolmentRouter = require('./routes/enrolmentRoute');
+const enrollmentRouter = require('./routes/enrollmentRoute');
 const stdApiRouter = require('./routes/api/StudentApiRoute');
 const tchApiRouter = require('./routes/api/TeacherApiRoute');
 const grpApiRouter = require('./routes/api/GroupApiRoute');
@@ -31,7 +31,7 @@ app.use('/', indexRouter);
 app.use('/students', studentRouter);
 app.use('/teachers', teacherRouter);
 app.use('/groups', groupRouter);
-app.use('/enrolments', enrolmentRouter);
+app.use('/enrollments', enrollmentRouter);
 
 
 app.use('/api/students', stdApiRouter);

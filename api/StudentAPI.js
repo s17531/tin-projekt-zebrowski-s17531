@@ -1,4 +1,5 @@
 const StudentRepository = require('../repository/mysql2/StudentRepository');
+
 exports.getStudents = (req, res, next) => {
     StudentRepository.getStudents()
         .then(stds => {

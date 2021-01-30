@@ -11,6 +11,7 @@ exports.getEnrollments = () => {
         });
 };
 exports.getEnrollmentById = (enrId) => {
+
 };
 
 exports.createEnrollment = (newEnrData) => {

@@ -9,6 +9,20 @@ exports.getEnrollments = (req, res, next) => {
         });
 };
 
+exports.getEnrollmentById = (req, res, next) => {
+    const enrId = req.params.enrId;
+    StudentRepository.getStudentById(enrId)
+        .then(enrId => {
+            if (!enrId) {
+                res.status(404).json({
+                    message: 'Enrollment with id: ' + enrId + ' not found'
+                })
+            } else {
+                res.status(200).json(std);
+            }
+        });
+};
+
 exports.createEnrollment = (req, res, next) => {
     EnrollmentRepository.createEnrollment(req.body)
         .then(newObj => {

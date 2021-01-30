@@ -1,7 +1,7 @@
 const db = require('../../config/mysql2/db');
 
 exports.getStudents = () => {
-    return db.promise().query('SELECT *  FROM student')
+    return db.promise().query('SELECT *  FROM student ORDER BY lastName, firstName')
         .then((results, fields) => {
             console.log(results[0]);
             return results[0];
@@ -13,7 +13,7 @@ exports.getStudents = () => {
 };
 
 exports.getStudentById = (stdId) => {
-    const sql = 'SELECT firstName, lastName, email, birthdate  FROM student WHERE idStudent = ?';
+    const sql = 'SELECT firstName, lastName, email, birthdate FROM student WHERE idStudent = ?';
     return db.promise().query(sql, [stdId])
         .then((results, fields) => {
             console.log(results[0]);

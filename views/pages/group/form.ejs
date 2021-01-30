@@ -1,0 +1,82 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <script type="application/javascript" src="/js/validationStForm.js"></script>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+            <input type="hidden" name="idClass" value="<%= grp.idClass %>">
+            <label for="classNr">Nr grupy:<sup>*</sup></label>
+            <input type="text" name="classNr" id="classNr" placeholder="9-10 znaków" value="<%= grp.classNr %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+            <span id="errorFirstName" class="errors-text"></span>
+
+            <label for="idLanguage">Język:<sup>*</sup></label>
+            <select name="idLanguage" id="idLanguage" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <% for (let i=0; i<allLangs.length; i++) { let lang=allLangs[i]; %>
+                    <option value="<%= lang.idLanguage %>" label="<%= lang.language %>"
+                        <%=(lang.idLanguage==grp.idLanguage ) ? 'selected' : '' %>> </option>
+                    <% } %>
+            </select>
+            <span id="errorLanguage" class="errors-text"></span>
+
+            <label for="idLevel">Poziom:<sup>*</sup></label>
+            <select name="idLevel" id="idLevel" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <% for (let i=0; i<allLevels.length; i++) { let level=allLevels[i]; %>
+                    <option value="<%= level.idLevel %>" label="<%= level.level %>" <%=(level.idLevel==grp.idLevel )
+                        ? 'selected' : '' %>> </option>
+                    <% } %>
+            </select>
+            <span id="errorLevel" class="errors-text"></span>
+
+            <label for="hours">Ilość godzin:<sup>*</sup></label>
+            <input type="number" name="hours" id="hours" placeholder="160" value="<%= grp.hours %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+            <span id="errorHours" class="errors-text"></span>
+
+            <label for="idTeacher">Lektor:<sup>*</sup></label>
+            <select name="idTeacher" id="idTeacher" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <% for (let i=0; i<allTeachers.length; i++) { let tch=allTeachers[i]; %>
+                    <option value="<%= tch.idTeacher %>" label="<%= tch.lastName + " " + tch.firstName  %>"
+                        <%=(tch.idTeacher==grp.idTeacher ) ? 'selected' : '' %>> </option>
+                    <% } %>
+            </select>
+            <span id="errorTeacher" class="errors-text"></span>
+
+            <label for="idYear">Rok szkolny:<sup>*</sup></label>
+            <select name="idYear" id="idYear" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <% for (let i=0; i<allYears.length; i++) { let year=allYears[i]; %>
+                    <option value="<%= year.idYear %>" label="<%= year.year %>" <%=(year.idYear==grp.idYear )
+                        ? 'selected' : '' %>> </option>
+                    <% } %>
+            </select>
+            <span id="errorYear" class="errors-text"></span>
+
+            <% if (formMode=='showDetails' ) { %>
+                <div class="section-buttons">
+                    <a href="/groups/edit/<%= grp.idClass %>" class="form-button-edit">Edytuj</a>
+                </div>
+                <% } %>
+
+                    <% if (formMode=='edit' ) { %>
+                        <div class="form-buttons">
+                            <p id="errorsSummary" class="errors-text"></p>
+                            <input type="submit" value="Aktualizuj" class="form-button-submit" />
+                        </div>
+                        <% } %>
+
+                            <% if (formMode=='createNew' ) { %>
+
+                                <div class="form-buttons">
+                                    <p id="errorsSummary" class="errors-text"></p>
+                                    <input type="submit" value="Dodaj" class="form-button-submit" />
+                                    <a href="/groups" class="form-button-cancel">Anuluj</a>
+                                </div>
+                                <% } %>
+
+
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>
