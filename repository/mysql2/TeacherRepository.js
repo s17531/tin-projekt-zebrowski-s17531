@@ -1,4 +1,5 @@
 const db = require('../../config/mysql2/db');
+const tchSchema = require('../../model/joi/Teacher');
 
 exports.getTeachers = () => {
     return db.promise().query('SELECT idTeacher, firstName, lastName, email, education, language FROM Teacher INNER JOIN Language ON Teacher.idLanguage=Language.idLanguage ORDER BY lastName, firstName')
@@ -38,21 +39,30 @@ exports.getTeacherById = (tchId) => {
 };
 
 exports.createTeacher = (newTchData) => {
+    const vRes = tchSchema.validate(newTchData, { abortEarly: false });
+    if (vRes.error) {
+        return Promise.reject(vRes.error);
+    }
+
     const firstName = newTchData.firstName;
     const lastName = newTchData.lastName;
     const email = newTchData.email;
     const education = newTchData.education;
-    const idLanguage = newTchData.language;
+    const idLanguage = newTchData.idLanguage;
     const sql = 'INSERT into Teacher (firstName, lastName, email, education, idLanguage) VALUES (?, ?, ?, ?, ?)';
     return db.promise().execute(sql, [firstName, lastName, email, education, idLanguage]);
 };
 
 exports.updateTeacher = (tchId, data) => {
+    const vRes = tchSchema.validate(data, { abortEarly: false });
+    if (vRes.error) {
+        return Promise.reject(vRes.error);
+    }
     const firstName = data.firstName;
     const lastName = data.lastName;
     const email = data.email;
     const education = data.education;
-    const idLanguage = data.language;
+    const idLanguage = data.idLanguage;
     const sql = 'UPDATE  Teacher set firstName = ?, lastName = ?, email = ?, education = ?, idLanguage = ? where idTeacher = ?';
     return db.promise().execute(sql, [firstName, lastName, email, education, idLanguage, tchId]);
 };

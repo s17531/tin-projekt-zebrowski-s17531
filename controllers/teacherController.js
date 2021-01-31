@@ -17,7 +17,8 @@ exports.showAddTeacherForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj lektora',
         formAction: '/teachers/add',
-        navLocation: 'tch'
+        navLocation: 'tch',
+        validationErrors: []
     });
 }
 
@@ -31,7 +32,8 @@ exports.showEditTeacherForm = (req, res, next) => {
                 pageTitle: 'Edycja lektora',
                 btnLabel: 'Edytuj lektora',
                 formAction: '/teachers/edit',
-                navLocation: 'tch'
+                navLocation: 'tch',
+                validationErrors: []
             });
         });
 };
@@ -45,7 +47,8 @@ exports.showTeacherDetails = (req, res, next) => {
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły lektora',
                 formAction: '',
-                navLocation: 'tch'
+                navLocation: 'tch',
+                validationErrors: []
             });
         });
 }
@@ -64,6 +67,17 @@ exports.addTeacher = (req, res, next) => {
     TeacherRepository.createTeacher(tchData)
         .then(result => {
             res.redirect('/teachers');
+        })
+        .catch(err => {
+            res.render('pages/teacher/form', {
+                std: stdData,
+                pageTitle: 'Dodawanie lektora',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj lektora',
+                formAction: '/teachers/add',
+                navLocation: 'tch',
+                validationErrors: err.details
+            });
         });
 };
 
@@ -73,5 +87,16 @@ exports.updateTeacher = (req, res, next) => {
     TeacherRepository.updateTeacher(tchId, tchData)
         .then(result => {
             res.redirect('/teachers');
+        })
+        .catch(err => {
+            res.render('pages/teacher/form', {
+                std: stdData,
+                pageTitle: 'Edycja lektora',
+                formMode: 'createNew',
+                btnLabel: 'Edytuj lektora',
+                formAction: '/teachers/edit',
+                navLocation: 'tch',
+                validationErrors: err.details
+            });
         });
 };

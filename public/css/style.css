@@ -267,6 +267,7 @@ abbr[title='required'] {
 .errors-text {
     font-size: 0.85em;
     line-height: 2.25rem;
+    color: red;
   }
 @media all and (max-width: 720px) {
     header {

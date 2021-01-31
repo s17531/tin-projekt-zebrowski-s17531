@@ -1,7 +1,7 @@
 function validateForm() {
     const firstNameInput = document.getElementById('firstName');
     const lastNameInput = document.getElementById('lastName');
-    const languageInput = document.getElementById('language');
+    const languageInput = document.getElementById('idLanguage');
     const emailInput = document.getElementById('email');
 
     const errorFirstName = document.getElementById('errorFirstName');

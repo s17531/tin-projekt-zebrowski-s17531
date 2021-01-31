@@ -17,7 +17,8 @@ exports.showAddStudentForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj ucznia',
         formAction: '/students/add',
-        navLocation: 'std'
+        navLocation: 'std',
+        validationErrors: []
     });
 }
 
@@ -31,7 +32,8 @@ exports.showEditStudentForm = (req, res, next) => {
                 pageTitle: 'Edycja ucznia',
                 btnLabel: 'Edytuj ucznia',
                 formAction: '/students/edit',
-                navLocation: 'std'
+                navLocation: 'std',
+                validationErrors: []
             });
         });
 };
@@ -45,7 +47,8 @@ exports.showStudentDetails = (req, res, next) => {
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły ucznia',
                 formAction: '',
-                navLocation: 'std'
+                navLocation: 'std',
+                validationErrors: []
             });
         });
 }
@@ -64,6 +67,17 @@ exports.addStudent = (req, res, next) => {
     StudentRepository.createStudent(stdData)
         .then(result => {
             res.redirect('/students');
+        })
+        .catch(err => {
+            res.render('pages/student/form', {
+                std: stdData,
+                pageTitle: 'Dodawanie ucznia',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj ucznia',
+                formAction: '/students/add',
+                navLocation: 'std',
+                validationErrors: err.details
+            });
         });
 };
 
@@ -73,5 +87,17 @@ exports.updateStudent = (req, res, next) => {
     StudentRepository.updateStudent(stdId, stdData)
         .then(result => {
             res.redirect('/students');
+        })
+        .catch(err => {
+            res.render('pages/student/form', {
+                std: stdData,
+                pageTitle: 'Edycja ucznia',
+                formMode: 'edit',
+                btnLabel: 'Dodaj ucznia',
+                formAction: '/students/edit',
+                navLocation: 'std',
+                validationErrors: err.details
+            });
         });
+
 };
