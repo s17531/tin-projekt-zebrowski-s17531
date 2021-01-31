@@ -1,4 +1,6 @@
 const EnrollmentRepository = require('../repository/mysql2/EnrollmentRepository');
+const StudentRepository = require('../repository/mysql2/StudentRepository');
+const GroupRepository = require('../repository/mysql2/GroupRepository');
 
 exports.showEnrollmentList = (req, res, next) => {
     EnrollmentRepository.getEnrollments()
@@ -11,42 +13,78 @@ exports.showEnrollmentList = (req, res, next) => {
 }
 
 exports.showAddEnrollmentForm = (req, res, next) => {
-    res.render('pages/enrollment/form', {
-        enr: {},
-        pageTitle: 'Nowe przypisanie',
-        formMode: 'createNew',
-        btnLabel: 'Dodaj przypisanie',
-        formAction: '/enrollments/add',
-        navLocation: 'enr'
-    });
+    let allStudents, allGroups;
+
+    StudentRepository.getStudents()
+        .then(stds => {
+            allStudents = stds;
+            return GroupRepository.getGroups();
+        })
+        .then(grps => {
+            allGroups = grps;
+            res.render('pages/enrollment/form', {
+                enr: {},
+                allStudents: allStudents,
+                allGroups: allGroups,
+                pageTitle: 'Nowe przypisanie',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj przypisanie',
+                formAction: '/enrollments/add',
+                navLocation: 'enr'
+            })
+        });
 }
 
 exports.showEditEnrollmentForm = (req, res, next) => {
+    let allStudents, allGroups;
     const enrId = req.params.enrId;
-    EnrollmentRepository.getEnrollmentById(enrId)
-        .then(enr => {
-            res.render('pages/enrollment/form', {
-                enr: enr,
-                formMode: 'edit',
-                pageTitle: 'Edycja przypisania',
-                btnLabel: 'Edytuj przypisanie',
-                formAction: '/enrollments/edit',
-                navLocation: 'enr'
-            });
+    StudentRepository.getStudents()
+        .then(stds => {
+            allStudents = stds;
+            return GroupRepository.getGroups();
+        })
+        .then(grps => {
+            allGroups = grps;
+            EnrollmentRepository.getEnrollmentById(enrId)
+                .then(enr => {
+                    res.render('pages/enrollment/form', {
+                        enr: enr,
+                        allStudents: allStudents,
+                        allGroups: allGroups,
+                        formMode: 'edit',
+                        pageTitle: 'Edycja przypisania',
+                        btnLabel: 'Edytuj przypisanie',
+                        formAction: '/enrollments/edit',
+                        navLocation: 'enr'
+                    });
+                });
+
         });
 };
 
 exports.showEnrollmentDetails = (req, res, next) => {
+    let allStudents, allGroups;
     const enrId = req.params.enrId;
-    EnrollmentRepository.getEnrollmentById(enrId)
-        .then(enr => {
-            res.render('pages/enrollment/form', {
-                enr: enr,
-                formMode: 'showDetails',
-                pageTitle: 'Szczegóły przypisania',
-                formAction: '',
-                navLocation: 'enr'
-            });
+    StudentRepository.getStudents()
+        .then(stds => {
+            allStudents = stds;
+            return GroupRepository.getGroups();
+        })
+        .then(grps => {
+            allGroups = grps;
+            EnrollmentRepository.getEnrollmentById(enrId)
+                .then(enr => {
+                    res.render('pages/enrollment/form', {
+                        enr: enr,
+                        allStudents: allStudents,
+                        allGroups: allGroups,
+                        formMode: 'showDetails',
+                        pageTitle: 'Szczegóły przypisania',
+                        formAction: '',
+                        navLocation: 'enr'
+                    });
+                });
+
         });
 }
 

@@ -6,42 +6,40 @@
                 <tr>
                     <th>Imię</th>
                     <th>Nazwisko</th>
-                    <th>E-mail</th>
-                    <th>Data urodzenia</th>
+                    <th>Grupa</th>
+                    <th>Data przypisania</th>
                     <th>Akcje</th>
                 </tr>
             </thead>
             <tbody>
-                <% for (let std of stds) { %>
+                <% for (let enr of enrs) { %>
                     <tr>
                         <td>
-                            <%= std.firstName %>
+                            <%= enr.firstName %>
                         </td>
                         <td>
-                            <%= std.lastName %>
+                            <%= enr.lastName %>
                         </td>
                         <td>
-                            <%= std.email %>
+                            <%= enr.classNr %>
                         </td>
                         <td>
-                            <%= std.birthdate.toISOString().split('T')[0]; %>
+                            <%= enr.enrollmentDate.toISOString().substring(0, 10); %>
                         </td>
                         <td>
                             <ul class="list-actions">
-                                <li><a href="/students/details/<%=std.idStudent%>"
+                                <li><a href="/enrollments/details/<%=enr.idEnrollment%>"
                                         class="list-actions-button-details">Szczegóły</a></li>
-                                <li><a href="/students/edit/<%=std.idStudent%>"
+                                <li><a href="/enrollments/edit/<%=enr.idEnrollment%>"
                                         class="list-actions-button-edit">Edytuj</a></li>
-                                <li><a href="/students/delete/<%=std.idStudent%>"
+                                <li><a href="/enrollments/delete/<%=enr.idEnrollment%>"
                                         class="list-actions-button-delete">Usuń</a></li>
                             </ul>
                         </td>
                     </tr>
                     <% } %>
             </tbody>
-
-
         </table>
-        <p><a href="/students/add" class="button-add">Dodaj nowego ucznia</a></p>
+        <p><a href="/enrollments/add" class="button-add">Przypisz nowego ucznia</a></p>
     </main>
     <%- include('../../fragments/footer.ejs') %>

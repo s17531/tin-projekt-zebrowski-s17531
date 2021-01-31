@@ -1,6 +1,7 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
+        <script type="application/javascript" src="/js/validationCommon.js"></script>
         <script type="application/javascript" src="/js/validationStForm.js"></script>
         <h2>
             <%= pageTitle %>
@@ -25,7 +26,7 @@
 
             <label for="birthdate">Data urodzenia:<sup>*</sup></label>
             <input type="date" name="birthdate" id="birthdate"
-                value="<%= std.birthdate.toISOString().substring(0, 10); %>" <%=(formMode=='showDetails' ) ? 'disabled'
+                value="<%= (formMode!='createNew') ? std.birthdate : ''; %>" <%=(formMode=='showDetails' ) ? 'disabled'
                 : '' %>>
             <span id="errorBirthdate" class="errors-text"></span>
 
@@ -50,8 +51,46 @@
                                     <a href="/students" class="form-button-cancel">Anuluj</a>
                                 </div>
                                 <% } %>
-
-
         </form>
+
+        <% if (formMode=='showDetails' || formMode=='edit' ) { %>
+            <h2>
+                Uczestnictwo w grupach
+            </h2>
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th>Nr grupy</th>
+                        <th>Język</th>
+                        <th>Lektor</th>
+                        <th>Rok szkolny</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(std.enrollments) { %>
+                        <% for (let e of std.enrollments) { %>
+                            <tr>
+                                <td><a href="/groups/details/<%= e.idClass %>">
+                                        <%= e.classNr %>
+                                    </a></td>
+                                <td>
+                                    <%= e.language %>
+                                </td>
+                                <td><a href="/teachers/details/<%= e.idTeacher %>">
+                                        <%= e.teacher %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= e.year %>
+                                </td>
+
+                            </tr>
+                            <% } %>
+                                <% } %>
+                </tbody>
+            </table>
+            <% } %>
+
+
     </main>
     <%- include('../../fragments/footer.ejs') %>

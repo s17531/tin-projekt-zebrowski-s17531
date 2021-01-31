@@ -1,0 +1,64 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <script type="application/javascript" src="/js/validationStForm.js"></script>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+            <input type="hidden" name="idEnrollment" value="<%= enr.idEnrollment %>">
+
+            <label for="idStudent">Uczeń:<sup>*</sup></label>
+            <select name="idStudent" id="idStudent" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <% for (let i=0; i<allStudents.length; i++) { let std=allStudents[i]; %>
+                    <option value="<%= std.idStudent %>" label="<%= std.lastName + " " + std.firstName %>"
+                        <%=(std.idStudent==enr.idStudent ) ? 'selected' : '' %>> </option>
+                    <% } %>
+            </select>
+            <span id="errorStudent" class="errors-text"></span>
+
+            <label for="idGroup">Grupa:<sup>*</sup></label>
+            <select name="idGroup" id="idGroup" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <% for (let i=0; i<allGroups.length; i++) { let grp=allGroups[i]; %>
+                    <option value="<%= grp.idClass %>" label="<%= grp.classNr  %>" <%=(grp.idClass==enr.idClass )
+                        ? 'selected' : '' %>> </option>
+                    <% } %>
+            </select>
+            <span id="errorGroup" class="errors-text"></span>
+
+
+            <label for="comment">Uwagi:<sup>*</sup></label>
+            <textarea name="comment" id="comment" cols="50" rows="3" placeholder="Dodatkowe informacje"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %> /><%= enr.comment %></textarea>
+
+
+            <span id="errorComment" class="errors-text"></span>
+
+
+            <% if (formMode=='showDetails' ) { %>
+                <div class="section-buttons">
+                    <a href="/enrollments/edit/<%= enr.idEnrollment %>" class="form-button-edit">Edytuj</a>
+                </div>
+                <% } %>
+
+                    <% if (formMode=='edit' ) { %>
+                        <div class="form-buttons">
+                            <p id="errorsSummary" class="errors-text"></p>
+                            <input type="submit" value="Aktualizuj" class="form-button-submit" />
+                        </div>
+                        <% } %>
+
+                            <% if (formMode=='createNew' ) { %>
+
+                                <div class="form-buttons">
+                                    <p id="errorsSummary" class="errors-text"></p>
+                                    <input type="submit" value="Dodaj" class="form-button-submit" />
+                                    <a href="/enrollments" class="form-button-cancel">Anuluj</a>
+                                </div>
+                                <% } %>
+
+
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

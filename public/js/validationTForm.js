@@ -2,11 +2,14 @@ function validateForm() {
     const firstNameInput = document.getElementById('firstName');
     const lastNameInput = document.getElementById('lastName');
     const languageInput = document.getElementById('language');
+    const emailInput = document.getElementById('email');
 
     const errorFirstName = document.getElementById('errorFirstName');
     const errorLastName = document.getElementById('errorLastName');
     const errorLanguage = document.getElementById('errorLanguage');
+    const errorEmail = document.getElementById('errorEmail');
     const errorsSummary = document.getElementById('errorsSummary');
+
 
     resetErrors([firstNameInput, lastNameInput, languageInput], [errorFirstName, errorLastName, errorLanguage], errorsSummary);
 
@@ -31,7 +34,19 @@ function validateForm() {
         lastNameInput.classList.add("error-input");
         errorLastName.innerText = "Pole powinno zawierać od 2 do 60 znaków";
     }
-
+    if (!checkRequired(emailInput.value)) {
+        valid = false;
+        emailInput.classList.add("error-input");
+        errorEmail.innerText = "Pole jest wymagane";
+    } else if (!checkTextLengthRange(emailInput.value, 5, 60)) {
+        valid = false;
+        emailInput.classList.add("error-input");
+        errorEmail.innerText = "Pole powinno zawierać od 5 do 60 znaków";
+    } else if (!checkEmail(emailInput.value)) {
+        valid = false;
+        emailInput.classList.add("error-input");
+        errorEmail.innerText = "Pole powinno zawierać prawidłowy adres email";
+    }
 
     if (!checkRequired(languageInput.value)) {
         valid = false;
@@ -41,7 +56,7 @@ function validateForm() {
 
 
     if (!valid) {
-        errorsSummary.innerText = "Formularz zawiera błędy";
+        errorsSummary.innerText = "*Formularz zawiera błędy";
     }
     return valid;
 }

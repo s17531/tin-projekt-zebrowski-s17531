@@ -1,7 +1,8 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
-        <script type="application/javascript" src="/js/validationStForm.js"></script>
+        <script type="application/javascript" src="/js/validationCommon.js"></script>
+        <script type="application/javascript" src="/js/validationTForm.js"></script>
         <h2>
             <%= pageTitle %>
         </h2>
@@ -23,8 +24,8 @@
                 <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
             <span id="errorEmail" class="errors-text"></span>
 
-            <label for="education">E-mail:<sup>*</sup></label>
-            <input type="text" name="education" id="email" placeholder="np. UW" value="<%= tch.education %>"
+            <label for="education">Wykształcenie:<sup>*</sup></label>
+            <input type="text" name="education" id="education" placeholder="np. UW" value="<%= tch.education %>"
                 <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
             <span id="errorEducation" class="errors-text"></span>
 
