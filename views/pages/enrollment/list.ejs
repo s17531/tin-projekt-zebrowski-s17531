@@ -30,16 +30,20 @@
                             <ul class="list-actions">
                                 <li><a href="/enrollments/details/<%=enr.idEnrollment%>"
                                         class="list-actions-button-details">Szczegóły</a></li>
-                                <li><a href="/enrollments/edit/<%=enr.idEnrollment%>"
-                                        class="list-actions-button-edit">Edytuj</a></li>
-                                <li><a href="/enrollments/delete/<%=enr.idEnrollment%>"
-                                        class="list-actions-button-delete">Usuń</a></li>
+                                <% if(loggedUser.role=="a" ) { %>
+                                    <li><a href="/enrollments/edit/<%=enr.idEnrollment%>"
+                                            class="list-actions-button-edit">Edytuj</a></li>
+                                    <li><a href="/enrollments/delete/<%=enr.idEnrollment%>"
+                                            class="list-actions-button-delete">Usuń</a></li>
+                                    <% } %>
                             </ul>
                         </td>
                     </tr>
                     <% } %>
             </tbody>
         </table>
-        <p><a href="/enrollments/add" class="button-add">Przypisz nowego ucznia</a></p>
+        <% if(loggedUser.role=="a" ) { %>
+            <p><a href="/enrollments/add" class="button-add">Przypisz nowego ucznia</a></p>
+            <% } %>
     </main>
     <%- include('../../fragments/footer.ejs') %>

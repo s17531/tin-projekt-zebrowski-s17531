@@ -13,6 +13,7 @@ const stdApiRouter = require('./routes/api/StudentApiRoute');
 const tchApiRouter = require('./routes/api/TeacherApiRoute');
 const grpApiRouter = require('./routes/api/GroupApiRoute');
 const enrApiRouter = require('./routes/api/EnrollmentApiRoute');
+const authUtils = require('./util/authUtils');
 const session = require('express-session');
 
 
@@ -43,10 +44,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 
 app.use('/', indexRouter);
-app.use('/students', studentRouter);
-app.use('/teachers', teacherRouter);
-app.use('/groups', groupRouter);
-app.use('/enrollments', enrollmentRouter);
+app.use('/students', authUtils.permitAuthenticatedUser, studentRouter);
+app.use('/teachers', authUtils.permitAuthenticatedUser, teacherRouter);
+app.use('/groups', authUtils.permitAuthenticatedUser, groupRouter);
+app.use('/enrollments', authUtils.permitAuthenticatedUser, enrollmentRouter);
 
 
 app.use('/api/students', stdApiRouter);

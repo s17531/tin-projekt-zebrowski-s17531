@@ -60,12 +60,28 @@ exports.createStudent = (newStdData) => {
     if (vRes.error) {
         return Promise.reject(vRes.error);
     }
+    // return checkEmailUnique(newStdData.email)
+    //     .then(emailErr => {
+    //         if (emailErr) {
+    //             return Promise.reject(emailErr);
+    //         } else {
+    //             const firstName = newStdData.firstName;
+    //             const lastName = newStdData.lastName;
+    //             const email = newStdData.email;
+    //             const birthdate = newStdData.birthdate;
+    //             const sql = 'INSERT into Student (firstName, lastName, email, birthdate, password) VALUES (?, ?, ?, ?, "12345")';
+    //             return db.promise().execute(sql, [firstName, lastName, email, birthdate]);
+    //         }
+    //     })
+    //     .catch(err => {
+    //         return Promise.reject(err);
+    //     });
 
     const firstName = newStdData.firstName;
     const lastName = newStdData.lastName;
     const email = newStdData.email;
     const birthdate = newStdData.birthdate;
-    const sql = 'INSERT into Student (firstName, lastName, email, birthdate) VALUES (?, ?, ?, ?)';
+    const sql = 'INSERT into Student (firstName, lastName, email, birthdate, password) VALUES (?, ?, ?, ?, "12345")';
     return db.promise().execute(sql, [firstName, lastName, email, birthdate]);
 
 };

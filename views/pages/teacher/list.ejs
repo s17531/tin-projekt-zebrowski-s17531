@@ -37,7 +37,7 @@
                                 <li><a href="/teachers/details/<%=tch.idTeacher %>"
                                         class="list-actions-button-details">Szczegóły</a></li>
 
-                                <% if(loggedUser.role!='s' ) { %>
+                                <% if(loggedUser.role=="a" ) { %>
                                     <li><a href="/teachers/edit/<%=tch.idTeacher %>"
                                             class="list-actions-button-edit">Edytuj</a></li>
                                     <li><a href="/teachers/delete/<%=tch.idTeacher %>"
@@ -49,7 +49,7 @@
                     <% } %>
             </tbody>
         </table>
-        <% if(loggedUser.role!='s' ) { %>
+        <% if(loggedUser.role=='a' ) { %>
             <p><a href="/teachers/add" class="button-add">Dodaj nowego lektora</a></p>
             <% } %>
     </main>

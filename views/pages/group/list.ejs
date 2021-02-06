@@ -44,7 +44,7 @@
                                         class="list-actions-button-details">Szczegóły</a>
                                 </li>
 
-                                <% if(loggedUser.role!='s' ) { %>
+                                <% if(loggedUser.role=='a' ) { %>
 
                                     <li>
                                         <a href="/groups/edit/<%=grp.idClass %>"
@@ -63,7 +63,7 @@
                     <% } %>
             </tbody>
         </table>
-        <% if(loggedUser.role!='s' ) { %>
+        <% if(loggedUser.role=='a' ) { %>
             <p><a href="/groups/add" class="button-add">Dodaj nową grupę</a></p>
             <% } %>
     </main>

@@ -34,19 +34,22 @@
         </div>
         <% } else { %>
             <div id="login"><span>Jesteś zalogowany jako: <%=loggedUser.firstName + " " + loggedUser.lastName%>
-                        , <% if(loggedUser.role=="n" ) { loggedUser.role %> lektor
-                            <% } else { %> uczeń
-                                <% } %>
+                        , <% if(loggedUser.role=="t" ) { %> lektor
+                            <% } else if(loggedUser.role=="a" ) { %> administrator
+                                <% } else { %> uczeń
+                                    <% } %>
 
-                                    </ span>
-                                    <a href="/logout">Wyloguj się</a>
+                                        </ span>
+                                        <a href="/logout">Wyloguj się</a>
 
 
 
             </div>
             <% if(loggedUser.role=="s" ) { %>
                 <%- include('navStudent.ejs') %>
-                    <% } else { %>
-                        <%- include('nav.ejs') %>
-                            <% } %>
-                                <% } %>
+                    <% } else if(loggedUser.role=="t" ) { %>
+                        <%- include('navTeacher.ejs') %>
+                            <% } else { %>
+                                <%- include('nav.ejs') %>
+                                    <% } %>
+                                        <% } %>

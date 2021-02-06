@@ -28,7 +28,7 @@
             <span id="errorGroup" class="errors-text"></span>
 
 
-            <label for="comment">Uwagi:<sup>*</sup></label>
+            <label for="comment">Uwagi: </label>
             <textarea name="comment" id="comment" cols="50" rows="3" placeholder="Dodatkowe informacje"
                 <%=(formMode=='showDetails' ) ? 'disabled' : '' %> /><%= enr.comment %></textarea>
 
@@ -36,7 +36,7 @@
             <span id="errorComment" class="errors-text"></span>
 
 
-            <% if (formMode=='showDetails' ) { %>
+            <% if (formMode=='showDetails' && loggedUser.role=='a' ) { %>
                 <div class="section-buttons">
                     <a href="/enrollments/edit/<%= enr.idEnrollment %>" class="form-button-edit">Edytuj</a>
                 </div>
