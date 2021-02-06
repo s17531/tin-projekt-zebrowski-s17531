@@ -1,12 +1,23 @@
 <nav>
     <ul>
-        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a>
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">
+                <%= __('nav.main-page') %>
+            </a>
         </li>
-        <li><a href="/students" class="<%= navLocation == 'std' ? 'active' : ''%>">Uczniowie</a>
+        <li><a href="/students" class="<%= navLocation == 'std' ? 'active' : ''%>">
+                <%= __('nav.students') %>
+            </a>
         </li>
-        <li><a href="/groups" class="<%= navLocation == 'grp' ? 'active' : ''%>">Grupy</a></li>
-        <li><a href="/teachers" class="<%= navLocation == 'tch' ? 'active' : ''%>">Lektorzy</a>
+        <li><a href="/groups" class="<%= navLocation == 'grp' ? 'active' : ''%>">
+                <%= __('nav.groups') %>
+            </a></li>
+        <li><a href="/teachers" class="<%= navLocation == 'tch' ? 'active' : ''%>">
+                <%= __('nav.teachers') %>
+            </a>
         </li>
-        <li><a href="/enrollments" class="<%= navLocation == 'enr' ? 'active' : ''%>">Przypisania uczniów</a></li>
+        <li><a href="/enrollments" class="<%= navLocation == 'enr' ? 'active' : ''%>">
+                <%= __('nav.enrollments') %>
+            </a></li>
     </ul>
+
 </nav>

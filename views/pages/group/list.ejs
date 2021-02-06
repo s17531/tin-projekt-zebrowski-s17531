@@ -4,13 +4,27 @@
         <table class="table-list">
             <thead>
                 <tr>
-                    <th>Nr grupy</th>
-                    <th>Poziom</th>
-                    <th>Język</th>
-                    <th>Liczba godzin</th>
-                    <th>Lektor prowadzący</th>
-                    <th>Rok szkolny</th>
-                    <th>Akcje</th>
+                    <th>
+                        <%= __('grp.fields.groupNr') %>
+                    </th>
+                    <th>
+                        <%= __('grp.fields.level') %>
+                    </th>
+                    <th>
+                        <%= __('grp.fields.language') %>
+                    </th>
+                    <th>
+                        <%= __('grp.fields.hours') %>
+                    </th>
+                    <th>
+                        <%= __('grp.fields.teacher') %>
+                    </th>
+                    <th>
+                        <%= __('grp.fields.schoolYear') %>
+                    </th>
+                    <th>
+                        <%= __('list.actions.title') %>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -40,20 +54,23 @@
                         <td>
                             <ul class="list-actions">
                                 <li>
-                                    <a href="/groups/details/<%=grp.idClass %>"
-                                        class="list-actions-button-details">Szczegóły</a>
+                                    <a href="/groups/details/<%=grp.idClass %>" class="list-actions-button-details">
+                                        <%= __('list.actions.details') %>
+                                    </a>
                                 </li>
 
                                 <% if(loggedUser.role=='a' ) { %>
 
                                     <li>
-                                        <a href="/groups/edit/<%=grp.idClass %>"
-                                            class="list-actions-button-edit">Edytuj</a>
+                                        <a href="/groups/edit/<%=grp.idClass %>" class="list-actions-button-edit">
+                                            <%= __('list.actions.edit') %>
+                                        </a>
                                     </li>
 
                                     <li>
-                                        <a href="/groups/delete/<%=grp.idClass %>"
-                                            class="list-actions-button-delete">Usuń</a>
+                                        <a href="/groups/delete/<%=grp.idClass %>" class="list-actions-button-delete">
+                                            <%= __('list.actions.delete') %>
+                                        </a>
                                     </li>
                                     <% } %>
                             </ul>
@@ -64,7 +81,9 @@
             </tbody>
         </table>
         <% if(loggedUser.role=='a' ) { %>
-            <p><a href="/groups/add" class="button-add">Dodaj nową grupę</a></p>
+            <p><a href="/groups/add" class="button-add">
+                    <%= __('grp.list.addNew') %>
+                </a></p>
             <% } %>
     </main>
     <%- include('../../fragments/footer.ejs') %>

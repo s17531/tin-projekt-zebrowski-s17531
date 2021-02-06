@@ -8,12 +8,16 @@
         <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
 
             <input type="hidden" name="idClass" value="<%= grp.idClass %>">
-            <label for="classNr">Nr grupy:<sup>*</sup></label>
+            <label for="classNr">
+                <%= __('grp.fields.groupNr') %>:<sup>*</sup>
+            </label>
             <input type="text" name="classNr" id="classNr" placeholder="9-10 znaków" value="<%= grp.classNr %>"
                 <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
             <span id="errorFirstName" class="errors-text"></span>
 
-            <label for="idLanguage">Język:<sup>*</sup></label>
+            <label for="idLanguage">
+                <%= __('grp.fields.language') %>:<sup>*</sup>
+            </label>
             <select name="idLanguage" id="idLanguage" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
                 <% for (let i=0; i<allLangs.length; i++) { let lang=allLangs[i]; %>
                     <option value="<%= lang.idLanguage %>" label="<%= lang.language %>"
@@ -22,7 +26,9 @@
             </select>
             <span id="errorLanguage" class="errors-text"></span>
 
-            <label for="idLevel">Poziom:<sup>*</sup></label>
+            <label for="idLevel">
+                <%= __('grp.fields.level') %>:<sup>*</sup>
+            </label>
             <select name="idLevel" id="idLevel" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
                 <% for (let i=0; i<allLevels.length; i++) { let level=allLevels[i]; %>
                     <option value="<%= level.idLevel %>" label="<%= level.level %>" <%=(level.idLevel==grp.idLevel )
@@ -36,7 +42,9 @@
                 <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
             <span id="errorHours" class="errors-text"></span>
 
-            <label for="idTeacher">Lektor:<sup>*</sup></label>
+            <label for="idTeacher">
+                <%= __('grp.fields.teacher') %>:<sup>*</sup>
+            </label>
             <select name="idTeacher" id="idTeacher" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
                 <% for (let i=0; i<allTeachers.length; i++) { let tch=allTeachers[i]; %>
                     <option value="<%= tch.idTeacher %>" label="<%= tch.lastName + " " + tch.firstName  %>"
@@ -45,7 +53,9 @@
             </select>
             <span id="errorTeacher" class="errors-text"></span>
 
-            <label for="idYear">Rok szkolny:<sup>*</sup></label>
+            <label for="idYear">
+                <%= __('grp.fields.schoolYear') %>:<sup>*</sup>
+            </label>
             <select name="idYear" id="idYear" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
                 <% for (let i=0; i<allYears.length; i++) { let year=allYears[i]; %>
                     <option value="<%= year.idYear %>" label="<%= year.year %>" <%=(year.idYear==grp.idYear )
@@ -56,7 +66,9 @@
 
             <% if (formMode=='showDetails' && loggedUser.role=='a' ) { %>
                 <div class="section-buttons">
-                    <a href="/groups/edit/<%= grp.idClass %>" class="form-button-edit">Edytuj</a>
+                    <a href="/groups/edit/<%= grp.idClass %>" class="form-button-edit">
+                        <%= __('form.actions.edit') %>
+                    </a>
                 </div>
                 <% } %>
 

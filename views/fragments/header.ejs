@@ -40,10 +40,14 @@
                                     <% } %>
 
                                         </ span>
-                                        <a href="/logout">Wyloguj się</a>
+                                        <a href="/logout">Wyloguj&nbsp;się</a>
 
 
+                                        <span class="lang">
+                                            <a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a>
 
+                                            <a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a>
+                                        </span>
             </div>
             <% if(loggedUser.role=="s" ) { %>
                 <%- include('navStudent.ejs') %>

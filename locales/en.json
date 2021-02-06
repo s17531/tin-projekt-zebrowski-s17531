@@ -1,0 +1,129 @@
+{
+    "main-page": {
+        "content": "Home"
+    },
+    "nav": {
+        "main-page": "Home",
+        "students": "Students",
+        "groups": "Groups",
+        "teachers": "Teachers",
+        "enrollments": "Enrollments"
+    },
+    "list": {
+        "actions": {
+            "title": "Actions",
+            "details": "Details",
+            "edit": "Edit",
+            "delete": "Delete",
+            "addNew": "list.actions.addNew"
+        }
+    },
+    "form": {
+        "actions": {
+            "edit": "Edit",
+            "cancel": "Cancel"
+        }
+    },
+    "std": {
+        "fields": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "birthdate": "Birthdate"
+        },
+        "list": {
+            "title": "Students",
+            "addNew": "Add new student",
+            "pageTitle": "Students"
+        },
+        "form": {
+            "enrollment": "Uczestnictwo w grupach",
+            "add": {
+                "pageTitle": "Nowy uczeń",
+                "btnLabel": "Dodaj"
+            },
+            "edit": {
+                "pageTitle": "Edycja ucznia",
+                "btnLabel": "Aktualizuj"
+            }
+        }
+    },
+    "tch": {
+        "fields": {
+            "firstName": "Imię",
+            "lastName": "Nazwisko",
+            "email": "Email",
+            "education": "Wykształcenie",
+            "language": "Wykształcenie"
+        },
+        "list": {
+            "title": "Lektorzy",
+            "addNew": "Dodaj nowego lektora",
+            "pageTitle": "Lista lektorów"
+        },
+        "form": {
+            "enrollment": "Uczestnictwo w grupach",
+            "add": {
+                "pageTitle": "Nowy lektor",
+                "btnLabel": "Dodaj"
+            },
+            "edit": {
+                "pageTitle": "Edycja lektora",
+                "btnLabel": "Aktualizuj"
+            }
+        }
+    },
+    "grp": {
+        "fields": {
+            "groupNr": "Group number",
+            "level": "Level",
+            "language": "Language",
+            "hours": "Liczba godzin",
+            "teacher": "Teacher",
+            "schoolYear": "School year"
+        },
+        "list": {
+            "title": "Groups",
+            "addNew": "Add new group",
+            "pageTitle": "Group list"
+        },
+        "form": {
+            "enrollment": "Uczestnictwo w grupach",
+            "add": {
+                "pageTitle": "Nowa grupa",
+                "btnLabel": "Dodaj"
+            },
+            "edit": {
+                "pageTitle": "Edycja grupy",
+                "btnLabel": "Aktualizuj"
+            }
+        }
+    },
+    "enr": {
+        "fields": {
+            "firstName": "Imię",
+            "lastName": "Nazwisko",
+            "groupNr": "Numer grupy",
+            "enrollmentDate": "Data przypisania"
+        },
+        "list": {
+            "title": "Przypisania do grup",
+            "addNew": "Przypisz nowego ucznia",
+            "pageTitle": "Przypisania do grup"
+        },
+        "form": {
+            "enrollment": "Przypisanie do grupy",
+            "add": {
+                "pageTitle": "Nowe przypisanie",
+                "btnLabel": "Dodaj"
+            },
+            "edit": {
+                "pageTitle": "Edycja przypisania",
+                "btnLabel": "Aktualizuj"
+            }
+        }
+    },
+    "forms": {
+        "actions": "forms.actions"
+    }
+}

@@ -4,11 +4,21 @@
         <table class="table-list">
             <thead>
                 <tr>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>E-mail</th>
-                    <th>Data urodzenia</th>
-                    <th>Akcje</th>
+                    <th>
+                        <%= __('std.fields.birthdate') %>
+                    </th>
+                    <th>
+                        <%= __('std.fields.lastName') %>
+                    </th>
+                    <th>
+                        <%= __('std.fields.email') %>
+                    </th>
+                    <th>
+                        <%= __('std.fields.birthdate') %>
+                    </th>
+                    <th>
+                        <%= __('list.actions.title') %>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -28,14 +38,19 @@
                         </td>
                         <td>
                             <ul class="list-actions">
-                                <li><a href="/students/details/<%=std.idStudent%>"
-                                        class="list-actions-button-details">Szczegóły</a></li>
+                                <li><a href="/students/details/<%=std.idStudent%>" class="list-actions-button-details">
+                                        <%= __('list.actions.details') %>
+                                    </a>
+                                </li>
 
                                 <% if(loggedUser.role=="a" ) { %>
-                                    <li><a href="/students/edit/<%=std.idStudent%>"
-                                            class="list-actions-button-edit">Edytuj</a></li>
+                                    <li><a href="/students/edit/<%=std.idStudent%>" class="list-actions-button-edit">
+                                            <%= __('list.actions.edit') %>
+                                        </a></li>
                                     <li><a href="/students/delete/<%=std.idStudent%>"
-                                            class="list-actions-button-delete">Usuń</a></li>
+                                            class="list-actions-button-delete">
+                                            <%= __('list.actions.delete') %>
+                                        </a></li>
 
                                     <% } %>
                             </ul>
@@ -47,7 +62,9 @@
 
         </table>
         <% if(loggedUser.role=="a" ) { %>
-            <p><a href="/students/add" class="button-add">Dodaj nowego ucznia</a></p>
+            <p><a href="/students/add" class="button-add">
+                    <%= __('std.list.addNew') %>
+                </a></p>
             <% } %>
     </main>
     <%- include('../../fragments/footer.ejs') %>
