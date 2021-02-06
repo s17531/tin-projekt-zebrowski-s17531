@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a>
+        </li>
+        <li><a href="/students/details/ <%= loggedUser.id %>" class="<%= navLocation == 'std' ? 'active' : ''%>">Dane
+                ucznia</a>
+        </li>
+        <li><a href="/groups" class="<%= navLocation == 'grp' ? 'active' : ''%>">Grupy</a></li>
+        <li><a href="/teachers" class="<%= navLocation == 'tch' ? 'active' : ''%>">Lektorzy</a>
+        </li>
+
+    </ul>
+</nav>

@@ -55,7 +55,7 @@
             </span>
 
 
-            <% if (formMode=='showDetails' ) { %>
+            <% if (formMode=='showDetails' && loggedUser.role=='s' ) { %>
                 <div class="section-buttons">
                     <a href="/teachers/edit/<%= tch.idTeacher %>" class="form-button-edit">Edytuj</a>
                 </div>

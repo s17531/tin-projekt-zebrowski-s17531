@@ -38,6 +38,15 @@ header h6 {
     margin-left: 5px;
 }
 
+#login {
+    overflow: auto;
+    margin-left:15px;
+
+}
+#login h5 {
+    float: left;
+} 
+
 nav {
     background-color: #bdc3c7;
 }
@@ -74,6 +83,14 @@ main h2 {
     border-bottom: 1px solid #7f8c8d;
     margin-bottom: 2rem;
 }
+main img {
+    float: left;
+    max-height: 150px;
+    margin-right: 10px;
+}
+main p { clear:both;
+line-height: 2.25rem;}
+
 .table-list {
     border-collapse: collapse;
     color:#2c3e50;

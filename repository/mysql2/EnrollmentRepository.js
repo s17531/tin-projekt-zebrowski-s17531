@@ -40,11 +40,10 @@ exports.getEnrollmentById = (enrId) => {
 exports.createEnrollment = (newEnrData) => {
     const idStudent = newEnrData.idStudent;
     const idGroup = newEnrData.idGroup;
-    const comment = data.comment;
-    const enrollmentDate = data.enrollmentDate;
+    const comment = newEnrData.comment;
 
     const sql = 'INSERT into Enrollment (idStudent, idClass, comment, enrollmentDate) VALUES (?, ?, ?,CURDATE())';
-    return db.promise().execute(sql, [idStudent, idGroup, comment, enrollmentDate]);
+    return db.promise().execute(sql, [idStudent, idGroup, comment]);
 };
 
 exports.updateEnrollment = (enrId, data) => {

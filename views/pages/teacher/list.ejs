@@ -36,16 +36,21 @@
                             <ul class="list-actions">
                                 <li><a href="/teachers/details/<%=tch.idTeacher %>"
                                         class="list-actions-button-details">Szczegóły</a></li>
-                                <li><a href="/teachers/edit/<%=tch.idTeacher %>"
-                                        class="list-actions-button-edit">Edytuj</a></li>
-                                <li><a href="/teachers/delete/<%=tch.idTeacher %>"
-                                        class="list-actions-button-delete">Usuń</a></li>
+
+                                <% if(loggedUser.role!='s' ) { %>
+                                    <li><a href="/teachers/edit/<%=tch.idTeacher %>"
+                                            class="list-actions-button-edit">Edytuj</a></li>
+                                    <li><a href="/teachers/delete/<%=tch.idTeacher %>"
+                                            class="list-actions-button-delete">Usuń</a></li>
+                                    <% } %>
                             </ul>
                         </td>
                     </tr>
                     <% } %>
             </tbody>
         </table>
-        <p><a href="/teachers/add" class="button-add">Dodaj nowego lektora</a></p>
+        <% if(loggedUser.role!='s' ) { %>
+            <p><a href="/teachers/add" class="button-add">Dodaj nowego lektora</a></p>
+            <% } %>
     </main>
     <%- include('../../fragments/footer.ejs') %>

@@ -43,13 +43,19 @@
                                     <a href="/groups/details/<%=grp.idClass %>"
                                         class="list-actions-button-details">Szczegóły</a>
                                 </li>
-                                <li>
-                                    <a href="/groups/edit/<%=grp.idClass %>" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="/groups/delete/<%=grp.idClass %>"
-                                        class="list-actions-button-delete">Usuń</a>
-                                </li>
+
+                                <% if(loggedUser.role!='s' ) { %>
+
+                                    <li>
+                                        <a href="/groups/edit/<%=grp.idClass %>"
+                                            class="list-actions-button-edit">Edytuj</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/groups/delete/<%=grp.idClass %>"
+                                            class="list-actions-button-delete">Usuń</a>
+                                    </li>
+                                    <% } %>
                             </ul>
                         </td>
                     </tr>
@@ -57,6 +63,8 @@
                     <% } %>
             </tbody>
         </table>
-        <p><a href="/groups/add" class="button-add">Dodaj nową grupę</a></p>
+        <% if(loggedUser.role!='s' ) { %>
+            <p><a href="/groups/add" class="button-add">Dodaj nową grupę</a></p>
+            <% } %>
     </main>
     <%- include('../../fragments/footer.ejs') %>

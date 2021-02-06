@@ -13,8 +13,23 @@ const stdApiRouter = require('./routes/api/StudentApiRoute');
 const tchApiRouter = require('./routes/api/TeacherApiRoute');
 const grpApiRouter = require('./routes/api/GroupApiRoute');
 const enrApiRouter = require('./routes/api/EnrollmentApiRoute');
+const session = require('express-session');
+
 
 var app = express();
+app.use(session({
+  secret: 'my_secret_password',
+  resave: false
+}));
+
+app.use((req, res, next) => {
+  const loggedUser = req.session.loggedUser;
+  res.locals.loggedUser = loggedUser;
+  if (!res.locals.loginError) {
+    res.locals.loginError = undefined;
+  }
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,5 +69,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
