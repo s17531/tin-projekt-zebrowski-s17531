@@ -4,8 +4,9 @@
                 <%= __('nav.main-page') %>
             </a>
         </li>
-        <li><a href="/students/details/ <%= loggedUser.id %>" class="<%= navLocation == 'std' ? 'active' : ''%>">Dane
-                ucznia</a>
+        <li><a href="/students/details/ <%= loggedUser.id %>" class="<%= navLocation == 'std' ? 'active' : ''%>">
+                <%= __('nav.student') %>
+            </a>
         </li>
         <li><a href="/groups" class="<%= navLocation == 'grp' ? 'active' : ''%>">
                 <%= __('nav.groups') %>

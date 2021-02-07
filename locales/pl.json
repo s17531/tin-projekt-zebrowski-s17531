@@ -1,131 +1,133 @@
 {
-	"main-page": {
-		"content": "Strona główna"
-	},
-	"nav": {
-		"main-page": "Strona główna",
-		"students": "Uczniowie",
-		"groups": "Grupy",
-		"teachers": "Lektorzy",
-		"enrollments": "Przypisania"
-	},
-	"list": {
-		"actions": {
-			"title": "Akcje",
-			"details": "Szczegóły",
-			"edit": "Edytuj",
-			"delete": "Usuń"
-		}
-	},
-	"form": {
-		"actions": {
-			"edit": "Edytuj",
-			"cancel": "Anuluj"
-		}
-	},
-	"std": {
-		"fields": {
-			"firstName": "Imię",
-			"lastName": "Nazwisko",
-			"email": "Email",
-			"birthdate": "Data urodzenia"
-		},
-		"list": {
-			"title": "Uczniowie",
-			"addNew": "Dodaj nowego ucznia",
-			"pageTitle": "Lista uczniów"
-		},
-		"form": {
-			"enrollment": "Uczestnictwo w grupach",
-			"add": {
-				"pageTitle": "Nowy uczeń",
-				"btnLabel": "Dodaj"
-			},
-			"edit": {
-				"pageTitle": "Edycja ucznia",
-				"btnLabel": "Aktualizuj"
-			}
-		}
-	},
-	"tch": {
-		"fields": {
-			"firstName": "Imię",
-			"lastName": "Nazwisko",
-			"email": "Email",
-			"education": "Wykształcenie",
-			"language": "Wykształcenie"
-		},
-		"list": {
-			"title": "Lektorzy",
-			"addNew": "Dodaj nowego lektora",
-			"pageTitle": "Lista lektorów"
-		},
-		"form": {
-			"enrollment": "Uczestnictwo w grupach",
-			"add": {
-				"pageTitle": "Nowy lektor",
-				"btnLabel": "Dodaj"
-			},
-			"edit": {
-				"pageTitle": "Edycja lektora",
-				"btnLabel": "Aktualizuj"
-			}
-		}
-	},
-	"grp": {
-		"fields": {
-			"groupNr": "Numer grupy",
-			"level": "Poziom",
-			"language": "Język",
-			"hours": "Liczba godzin",
-			"teacher": "Lektor prowadzący",
-			"schoolYear": "Rok szkolny"
-		},
-		"list": {
-			"title": "Grupy",
-			"addNew": "Dodaj nową grupę",
-			"pageTitle": "Lista grup",
-			"groupNr": "grp.list.groupNr",
-			"level": "grp.list.level",
-			"language": "grp.list.language",
-			"hours": "grp.list.hours",
-			"teacher": "grp.list.teacher",
-			"schoolYear": "grp.list.schoolYear"
-		},
-		"form": {
-			"enrollment": "Uczestnictwo w grupach",
-			"add": {
-				"pageTitle": "Nowa grupa",
-				"btnLabel": "Dodaj"
-			},
-			"edit": {
-				"pageTitle": "Edycja grupy",
-				"btnLabel": "Aktualizuj"
-			}
-		}
-	},
-	"enr": {
-		"fields": {
-			"firstName": "Imię",
-			"lastName": "Nazwisko",
-			"groupNr": "Numer grupy",
-			"enrollmentDate": "Data przypisania"
-		},
-		"list": {
-			"title": "Przypisania do grup",
-			"addNew": "Przypisz nowego ucznia",
-			"pageTitle": "Przypisania do grup"
-		},
-		"form": {
-			"enrollment": "Przypisanie do grupy",
-			"add": {
-				"pageTitle": "Nowe przypisanie",
-				"btnLabel": "Dodaj"
-			},
-			"edit": {
-				"pageTitle": "Edycja przypisania",
-				"btnLabel": "Aktualizuj"
-			}
-		}
-	}
+    "main-page": {
+        "content": "Strona główna"
+    },
+    "nav": {
+        "main-page": "Strona główna",
+        "students": "Uczniowie",
+        "groups": "Grupy",
+        "teachers": "Lektorzy",
+        "enrollments": "Przypisania",
+        "student": "Uczeń",
+        "teacher": "Lektor"
+    },
+    "list": {
+        "actions": {
+            "title": "Akcje",
+            "details": "Szczegóły",
+            "edit": "Edytuj",
+            "delete": "Usuń"
+        }
+    },
+    "form": {
+        "actions": {
+            "edit": "Edytuj",
+            "cancel": "Anuluj"
+        }
+    },
+    "std": {
+        "fields": {
+            "firstName": "Imię",
+            "lastName": "Nazwisko",
+            "email": "Email",
+            "birthdate": "Data urodzenia"
+        },
+        "list": {
+            "title": "Uczniowie",
+            "addNew": "Dodaj nowego ucznia",
+            "pageTitle": "Lista uczniów"
+        },
+        "form": {
+            "enrollment": "Uczestnictwo w grupach",
+            "add": {
+                "pageTitle": "Nowy uczeń",
+                "btnLabel": "Dodaj"
+            },
+            "edit": {
+                "pageTitle": "Edycja ucznia",
+                "btnLabel": "Aktualizuj"
+            }
+        }
+    },
+    "tch": {
+        "fields": {
+            "firstName": "Imię",
+            "lastName": "Nazwisko",
+            "email": "Email",
+            "education": "Wykształcenie",
+            "language": "Wykształcenie"
+        },
+        "list": {
+            "title": "Lektorzy",
+            "addNew": "Dodaj nowego lektora",
+            "pageTitle": "Lista lektorów"
+        },
+        "form": {
+            "enrollment": "Uczestnictwo w grupach",
+            "add": {
+                "pageTitle": "Nowy lektor",
+                "btnLabel": "Dodaj"
+            },
+            "edit": {
+                "pageTitle": "Edycja lektora",
+                "btnLabel": "Aktualizuj"
+            }
+        }
+    },
+    "grp": {
+        "fields": {
+            "groupNr": "Numer grupy",
+            "level": "Poziom",
+            "language": "Język",
+            "hours": "Liczba godzin",
+            "teacher": "Lektor prowadzący",
+            "schoolYear": "Rok szkolny"
+        },
+        "list": {
+            "title": "Grupy",
+            "addNew": "Dodaj nową grupę",
+            "pageTitle": "Lista grup",
+            "groupNr": "grp.list.groupNr",
+            "level": "grp.list.level",
+            "language": "grp.list.language",
+            "hours": "grp.list.hours",
+            "teacher": "grp.list.teacher",
+            "schoolYear": "grp.list.schoolYear"
+        },
+        "form": {
+            "enrollment": "Uczestnictwo w grupach",
+            "add": {
+                "pageTitle": "Nowa grupa",
+                "btnLabel": "Dodaj"
+            },
+            "edit": {
+                "pageTitle": "Edycja grupy",
+                "btnLabel": "Aktualizuj"
+            }
+        }
+    },
+    "enr": {
+        "fields": {
+            "firstName": "Imię",
+            "lastName": "Nazwisko",
+            "groupNr": "Numer grupy",
+            "enrollmentDate": "Data przypisania"
+        },
+        "list": {
+            "title": "Przypisania do grup",
+            "addNew": "Przypisz nowego ucznia",
+            "pageTitle": "Przypisania do grup"
+        },
+        "form": {
+            "enrollment": "Przypisanie do grupy",
+            "add": {
+                "pageTitle": "Nowe przypisanie",
+                "btnLabel": "Dodaj"
+            },
+            "edit": {
+                "pageTitle": "Edycja przypisania",
+                "btnLabel": "Aktualizuj"
+            }
+        }
+    }
 }

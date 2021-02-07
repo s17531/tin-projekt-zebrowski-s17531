@@ -11,8 +11,8 @@
         <li><a href="/groups" class="<%= navLocation == 'grp' ? 'active' : ''%>">
                 <%= __('nav.groups') %>
             </a></li>
-        <li><a href="/teachers/details/ <%= loggedUser.id %>"" class=" <%=navLocation=='tch' ? 'active' : '' %>">Dane
-                lektora</a>
+        <li><a href="/teachers/details/ <%= loggedUser.id %>"" class=" <%=navLocation=='tch' ? 'active' : '' %>"><%=
+                    __('nav.teacher') %></a>
         </li>
         <li><a href="/enrollments" class="<%= navLocation == 'enr' ? 'active' : ''%>">
                 <%= __('nav.enrollments') %>
